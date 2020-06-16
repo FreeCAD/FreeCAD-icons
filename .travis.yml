@@ -1,0 +1,25 @@
+os: linux
+dist: bionic
+
+language: shell
+
+addons:
+  apt:
+    packages:
+    - qt5-default qtbase5-dev-tools zip
+
+script:
+ - chmod ugo+x Travis/travis.sh
+ - /bin/bash ./Travis/travis.sh
+
+before_deploy:
+ - export TRAVIS_TAG="continuous"
+
+deploy:
+  provider: releases
+  token: $GH_TOKEN
+  file_glob: true
+  file: deploy/*
+  skip_cleanup: true
+  overwrite: true
+
