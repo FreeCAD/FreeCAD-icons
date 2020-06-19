@@ -6,7 +6,7 @@ language: shell
 addons:
   apt:
     packages:
-    - qt5-default qtbase5-dev-tools zip
+    - qt5-default qtbase5-dev-tools
 
 script:
  - chmod ugo+x Travis/travis.sh
